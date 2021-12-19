@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+  api_typeorm:
+    container_name: api_typeorm
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: coruja09
+      POSTGRES_DB: typeorm_db
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - 5432:5432
