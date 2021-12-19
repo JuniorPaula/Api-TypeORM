@@ -5,9 +5,10 @@ export class CreateCategoryController {
   async handle(request: Request, response: Response) {
     const { name, description } = request.body;
 
+    /** isso retorna uma promise */
     const service = new CreateCategoryService();
 
-    const result = service.execute({ name, description });
+    const result = await service.execute({ name, description });
 
     if (result instanceof Error) {
       return response.status(400).json(result.message);
